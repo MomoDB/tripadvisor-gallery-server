@@ -1,0 +1,6 @@
+docker commit galleryweb tripadvisorgallery
+docker commit gallerydb tripadvisormysql
+docker tag tripadvisormysql:latest jorgecastello1/tripadvisorsql:gallerydb
+docker tag tripadvisorgallery:latest jorgecastello1/tripadvisorgallery:galleryweb
+docker push jorgecastello1/tripadvisorsql:gallerydb
+docker push jorgecastello1/tripadvisorgallery:galleryweb

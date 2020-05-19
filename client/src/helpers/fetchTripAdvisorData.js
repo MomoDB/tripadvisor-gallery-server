@@ -1,6 +1,6 @@
 const fetchTripAdvisorData = (callback) => {
   const activityId = Math.floor(Math.random() * 100);
-  fetch(`http://127.0.0.1:2400/trip/gallery/${activityId}`)
+  fetch(`/tripAdvisor/${activityId}/gallery`)
     .then((res) => res.json())
     .then((data) => {
       callback(null, data);

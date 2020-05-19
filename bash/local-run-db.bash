@@ -1,0 +1,1 @@
+docker run -d -p 79:3606 --name gallerydb -e MYSQL_ROOT_PASSWORD=password --rm tripadvisormysql

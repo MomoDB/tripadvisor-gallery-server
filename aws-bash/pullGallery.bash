@@ -1,0 +1,1 @@
+docker pull jorgecastello1/tripadvisorgallery:galleryweb

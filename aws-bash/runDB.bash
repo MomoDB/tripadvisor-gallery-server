@@ -1,0 +1,1 @@
+docker run -d -p 79:3606 --name gallerydb --rm jorgecastello1/tripadvisorsql:gallerydb

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    container_name: galleryweb
+    image: tripadvisorgallery
+    build: .
+    ports:
+      - '80:9999'
+    depends_on:
+      - 'db'
+    links:
+      - 'db'
+    restart: always
+
+  db:
+    container_name: gallerydb
+    image: tripadvisormysql
+    build: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    restart: always
+    ports:
+      - '77:3306'
+    expose:
+      - '77'

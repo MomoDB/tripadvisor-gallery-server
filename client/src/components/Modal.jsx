@@ -53,7 +53,6 @@ Modal.defaultProps = {
   showGalleryModal: () => {},
   showReviewModal: () => {},
 };
-
 Modal.propTypes = {
   name: PropTypes.string,
   location: PropTypes.string,

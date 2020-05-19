@@ -143,4 +143,6 @@ ImageSlider.propTypes = {
   backgroundImage: PropTypes.shape({}),
   imageCount: PropTypes.number,
 };
+
+ImageSlider.propTypes = {};
 export default ImageSlider;

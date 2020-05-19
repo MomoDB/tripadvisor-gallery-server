@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const _ = require('underscore');
+const db = require('../index');
 
 // This class generates a random activity instance
 const { TripAdvisorActivity } = require('./data/TripAdvisorActivity.js');
@@ -65,7 +66,7 @@ const createActivity = (photos, callback) => {
 
   addActivity(newActivity, (activityId) => {
     // Generates a random number between 10 and 15 for the number of photos per activity
-    const randomNumberOfImagesForActivity = Math.floor(Math.random() * (15 - 10 + 1) + 10);
+    const randomNumberOfImagesForActivity = Math.floor(Math.random() * (14 - 9 + 1) + 9);
     // eslint-disable-next-line no-use-before-define
     addUserForActivity(photos, activityId, randomNumberOfImagesForActivity, callback);
   });
@@ -132,6 +133,13 @@ const addImages = (photos, activityId, infoId, maxImagesForUser, currentImgIdx, 
 
 init(imageUrlsFilePath, (imagePaths) => {
   populateDatabase(imagePaths, () => { // eslint-disable-next-line no-console
-    console.log('Database has completed seeding...');
+    console.log('Database is wrapping up seeding...');
+    db.end((err) => {
+      if (err) {
+        throw new Error(err);
+      } else {
+        console.log('Database and Web Service will now reboot to serve requests...')
+      }
+    });
   });
 });

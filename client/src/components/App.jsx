@@ -15,6 +15,11 @@ const {
   showReviewModalHandler, handleImageSliderClick, closeModal,
 } = eventHandlers;
 
+// Import AWS S3 Links
+import awsS3Links from '../../../AmazonS3Links';
+// Destrcture awsS3Links
+const { awsBaseUrl } = awsS3Links;
+
 
 class App extends React.Component {
   constructor(props) {
@@ -62,7 +67,10 @@ class App extends React.Component {
       activity, photos, activePhotoIdx, showGalleryModal, showReviewModal,
     } = this.state;
     const { link, alt } = photos[activePhotoIdx];
-    const imageStyle = { backgroundImage: `url(https://trip-advisor-photo-gallery.s3-us-west-1.amazonaws.com/${link})` };
+    let imageStyle = {};
+    if (link) {
+      imageStyle = { backgroundImage: `url(${awsBaseUrl}/${link})` };
+    }
 
     return (
       <>
@@ -76,7 +84,7 @@ class App extends React.Component {
           <Modal
             name={activity.name}
             location={activity.location}
-            activePhotoIdx={activePhotoIdx}
+            activePhotoIdx={Number(activePhotoIdx)}
             photos={photos}
             shouldShowGalleryModal={showGalleryModal}
             showGalleryModal={this.showGalleryModalHandler}

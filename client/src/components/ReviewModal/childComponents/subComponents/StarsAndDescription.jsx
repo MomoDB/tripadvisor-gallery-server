@@ -20,11 +20,11 @@ StarsAndDescription.defaultProps = {
   description: '',
   handleReadReviewClick: () => {},
 };
-
 StarsAndDescription.propTypes = {
   stars: PropTypes.number,
   description: PropTypes.string,
   handleReadReviewClick: PropTypes.func,
 };
+
 
 export default StarsAndDescription;

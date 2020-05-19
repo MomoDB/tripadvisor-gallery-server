@@ -21,7 +21,6 @@ Emblem.defaultProps = {
   firstLetter: '',
   user: '',
 };
-
 Emblem.propTypes = {
   firstLetter: PropTypes.string,
   user: PropTypes.string,

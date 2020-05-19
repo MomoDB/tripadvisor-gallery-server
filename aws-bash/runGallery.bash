@@ -1,0 +1,1 @@
+docker run -d -p 80:9999 --name galleryweb --rm jorgecastello1/tripadvisorgallery:galleryweb
