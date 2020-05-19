@@ -10,19 +10,19 @@ describe('Images should be preloaded through link tabs in the head of the HTML d
     const { photos } = exampleData;
     preloadImages(photos);
     const links = document.querySelectorAll('link');
-    expect(links.length).toBe(photos.length);
+    expect(links.length).toBe(photos.length + 1); // Account for preconnect link
   });
-  test('link tags should include the preload attribute', () => {
+  test('link tags should include the preconnect attribute', () => {
     const { photos } = exampleData;
     preloadImages([photos[0]]);
     const link = document.querySelector('link');
     const attr = link.getAttribute('rel');
-    expect(attr).toBe('preload');
+    expect(attr).toBe('preconnect');
   });
   test('link tags should include the url of the target content', () => {
     const { photos } = exampleData;
     preloadImages([photos[0]]);
-    const link = document.querySelector('link');
+    const link = Array.from(document.querySelectorAll('link'))[1];
     const href = link.getAttribute('href');
 
     const isUrlPresent = href.indexOf(photos[0].link) !== -1;
