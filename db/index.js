@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 let { mysqlConfig } = require('../config.js');
+
 const { host, user, password, database } = mysqlConfig;
 
 // Re-assign mysqlConfig to default params with no password if config file is not present
@@ -15,7 +16,7 @@ db.connect((err) => {
   if (err) {
     console.log(err);
   } else { // eslint-disable-next-line no-console
-    // console.log(`Successfully connected to ${mysqlConfig.database} database...`);
+    console.log(`Successfully connected to ${mysqlConfig.database} database...`);
   }
 });
 

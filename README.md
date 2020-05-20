@@ -30,6 +30,10 @@
     database: 'tripAdvisorGallery'
   };
   ```
+  1d. Create database
+  ```
+  mysql -u root -p < schema.sql
+  ```
 2. In the root directory, copy / paste the following command: npm run seed
 
 ## Requirements
