@@ -4,3 +4,5 @@ db/aws-S3/pictures/
 coverage/
 client/dist/bundle.js
 package-lock.json
+db_aloysius/pictures/
+generatedData/CSV
