@@ -12,8 +12,9 @@
 
 ```json
     {
+      "gallery_id": "Number",
       "activity": {
-        "name": "String",
+        "name": "String", // add ID or use unique for mongo
         "location": "String"
       },
       "photos": [
@@ -22,7 +23,18 @@
           "alt": "String",
           "user": "String",
           "user_contributions": "Number",
-          "date_created": "String",
+          "date_created": "Date", //type could be String or Date. Change it to be YYYY-MM-DD
+          "review_title": "String",
+          "review_description": "String",
+          "review_stars": "Number",
+          "review_helpful_score": "Number"
+        },
+        {
+          "link": "String",
+          "alt": "String",
+          "user": "String",
+          "user_contributions": "Number",
+          "date_created": "Date", //type could be String or Date
           "review_title": "String",
           "review_description": "String",
           "review_stars": "Number",
@@ -51,7 +63,7 @@
           "alt": "String",
           "user": "String",
           "user_contributions": "Number",
-          "date_created": "String",
+          "date_created": "Date",
           "review_title": "String",
           "review_description": "String",
           "review_stars": "Number",
@@ -74,6 +86,7 @@
 
 ```json
     {
+      "gallery_id": "Number",
       "activity": {
         "name": "String",
         "location": "String"
@@ -84,7 +97,7 @@
           "alt": "String",
           "user": "String",
           "user_contributions": "Number",
-          "date_created": "String",
+          "date_created": "Date",
           "review_title": "String",
           "review_description": "String",
           "review_stars": "Number",
