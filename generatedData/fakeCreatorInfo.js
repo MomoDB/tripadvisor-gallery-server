@@ -10,7 +10,7 @@ const contributionPool = [1, 8, 14, 4, 3, 2, 8, 13, 5, 14, 8, 2, 3, 7, 4, 12, 6,
 let count = 0;
 
 const writeLine = () => {
-  return `${count}, Management, 0, ${faker.date.recent()}, "", "", 0, 0\n`;
+  return `Management, 0, ${faker.date.recent()}, , , 0, 0\n`;
 };
 
 const checkMemoryNative = () => {
@@ -45,7 +45,7 @@ const writeNTimes = (writer, times, callback) => {
 };
 
 
-const writeStream = fs.createWriteStream('./photoCreatorInfo.csv');
+const writeStream = fs.createWriteStream('./CSV/photoCreatorInfo.csv');
 const line1 = 'photoCreatorInfo_id, username, user_contributions, date_created, review_title, review_description, review_stars, review_helpful_score\n';
 writeStream.write(line1);
 writeNTimes(writeStream, 1000000, () => {
@@ -53,7 +53,7 @@ writeNTimes(writeStream, 1000000, () => {
 });
 
 const writeLine2 = () => {
-  return `${count}, ${faker.internet.userName()}, ${contributionPool[count%30]}, ${faker.date.recent()}, ${faker.lorem.word()}, ${faker.lorem.words()}, ${starPool[count%20]}, ${helpfulPool[count%10]} \n`;
+  return `${faker.internet.userName()}, ${contributionPool[count%30]}, ${faker.date.recent()}, ${faker.lorem.word()}, ${faker.lorem.words()}, ${starPool[count%20]}, ${helpfulPool[count%10]} \n`;
 };
 
 const writeNTimes2 = (writer, times, callback) => {

@@ -1,14 +1,14 @@
 const faker = require('faker');
 const fs = require('fs');
 const v8 = require('v8');
-const URL = require('./db_aloysius/pictureURLs.js');
+const URL = require('../db_aloysius/pictureURLs.js');
 
 
 const activityPool = [8, 11, 12, 9, 8, 10, 10, 11, 9, 12];
-let count = 0;
+let count = 2000000;
 
 const writeLine = () => {
-  return `${count}, ${URL[(count+1)%810]}, ${faker.lorem.words()}, ${Math.floor(Math.random() * 10000000)}, ${Math.floor(Math.random() * 4000000)}\n`;
+  return `${URL[(count + 1) % 810]}, ${faker.lorem.words()}, ${Math.floor(Math.random() * 10000000)}, ${Math.ceil(Math.random() * 4000000)}\n`;
 };
 
 const checkMemoryNative = () => {
@@ -43,9 +43,18 @@ const writeNTimes = (writer, times, callback) => {
 };
 
 
-const writeStream = fs.createWriteStream('./photos1.csv');
-const line1 = 'photos_id, link, alt , activity_id, photoCreatorInfo_id\n';
-writeStream.write(line1);
-writeNTimes(writeStream, 1000000, () => {
-  console.log('written!');
-});
+// const writeStream = fs.createWriteStream('./CSV/photos3.csv');
+// const line1 = 'photos_id, link, alt , activity_id, photoCreatorInfo_id\n';
+// writeStream.write(line1);
+// writeNTimes(writeStream, 10, () => {
+//   console.log('written!');
+// });
+
+for (let x = 0; x < 10; x++) {
+  const writeStream = fs.createWriteStream(`./CSV/photos${x}.csv`);
+  const line1 = 'link, alt , activity_id, photoCreatorInfo_id\n';
+  writeStream.write(line1);
+  writeNTimes(writeStream, 10000000, () => {
+    console.log(`written! ${x}`);
+  });
+}

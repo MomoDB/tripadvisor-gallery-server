@@ -1,10 +1,9 @@
 const faker = require('faker');
 const fs = require('fs');
 const v8 = require('v8');
-const URL = require('./db_aloysius/pictureURLs.js');
+const URL = require('../db_aloysius/pictureURLs.js');
 
-let count = 0;
-
+let count = 1;
 const writeLine = () => {
   return `${count}, ${faker.lorem.words()}, ${faker.address.city()}\n`;
 };
@@ -41,7 +40,7 @@ const writeNTimes = (writer, times, callback) => {
 };
 
 
-const writeStream = fs.createWriteStream('./activities.csv');
+const writeStream = fs.createWriteStream('./CSV/activitiesMongo.csv');
 const line1 = 'activity_id, name, location\n';
 writeStream.write(line1);
 writeNTimes(writeStream, 10000000, () => {

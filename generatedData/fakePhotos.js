@@ -49,3 +49,17 @@ writeStream.write(line1);
 writeNTimes(writeStream, 100000000, () => {
   console.log('written!');
 });
+
+
+// mongoimport --type csv -d tripadvisor -c activity --headerline --drop activitiesMongo.csv
+// mongoimport --type csv -d tripadvisor -c photocreatorinfo --headerline --drop photoCreatorInfo.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline --drop photos0.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos1.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos2.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos3.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos4.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos5.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos6.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos7.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos8.csv
+// mongoimport --type csv -d tripadvisor -c photos --headerline photos9.csv
