@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "react-dev": "webpack -d --watch",
+    "react-dev": "webpack -p --watch",
     "start-react": "live-server --open=client/dist",
     "test": "jest",
     "lint": "eslint .",
@@ -28,8 +28,10 @@
     "mongoose": "^5.9.15",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "newrelic": "^6.8.0",
     "node-fetch": "^2.6.0",
     "os": "^0.1.1",
+    "pg": "^8.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

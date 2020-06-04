@@ -43,24 +43,19 @@ const addPhoto = (photoObj, activity_id, photoCreatorInfo_id, callback) => {
 };
 
 const queryDbForGalleryData = (id, callback) => {
-  const activityQuery = `select name, location from activity where activity.id=${id}`;
-  db.query(activityQuery, (activityQueryErr, activityData) => {
-    if (activityQueryErr) {
-      callback(activityQueryErr);
-    } else {
-      const photosQuery = `select photos.link, photos.alt, photoCreatorInfo.user, photoCreatorInfo.user_contributions, photoCreatorInfo.date_created, photoCreatorInfo.review_title, photoCreatorInfo.review_description, photoCreatorInfo.review_stars, photoCreatorInfo.review_helpful_score from photos, activity, photoCreatorInfo where photos.activity_id=activity.id and photos.photoCreatorInfo_id=photoCreatorInfo.id and activity.id=${id} order by photoCreatorInfo.user="Management" desc, photoCreatorInfo.review_title='null' desc`;
+
+      const photosQuery = `SELECT photos.link, photos.alt, photoCreatorInfo.username, photoCreatorInfo.user_contributions, photoCreatorInfo.date_created, photoCreatorInfo.review_title, photoCreatorInfo.review_description, photoCreatorInfo.review_stars, photoCreatorInfo.review_helpful_score FROM photos, activity, photoCreatorInfo WHERE photos.activity_id=activity.activity_id and photos.photoCreatorInfo_id=photoCreatorInfo.photoCreatorInfo_id and activity.activity_id=${id}`;
       db.query(photosQuery, (photosQueryErr, photos) => {
         if (photosQueryErr) {
           callback(photosQueryErr);
         } else {
-          const [activity] = activityData;
-          const galleryData = { activity, photos };
+          const galleryData = { photos };
           callback(null, galleryData);
         }
       });
-    }
-  });
+
 };
+
 
 module.exports.addActivity = addActivity;
 module.exports.addPhotoCreatorInfo = addPhotoCreatorInfo;

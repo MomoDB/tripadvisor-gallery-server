@@ -4,7 +4,7 @@ const app = require('../server');
 describe('GET TripAdvisor Gallery Data', () => {
   let activityId;
   beforeEach(() => {
-    activityId = Math.floor(Math.random() * 100);
+    activityId = Math.floor(Math.random() * 10000000);
   });
 
   test('should receive status code of 200', async () => {
