@@ -11,7 +11,7 @@ export let options = {
   duration: '1m',
 };
 export default function() {
-  let activity = Math.floor(Math.random() * 10000000);
+  let activity = Math.floor(Math.random() * 1000);
   let res = http.get(`http://localhost:9999/tripadvisor/${activity}/gallery`);
   check(res, {
     'Status 200: ': (result) => result.status == 200,

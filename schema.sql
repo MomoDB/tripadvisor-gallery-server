@@ -37,9 +37,9 @@ CREATE TABLE photos (
 -- DROP TABLE activity
 copy activity (name, location) FROM '/home/ec2-user/dataFiles/activities.csv' DELIMITER ',' CSV HEADER;
 
-copy photoCreatorInfo (username, user_contributions, date_created, review_title, review_description, review_stars, review_helpful_score) FROM '/users/aloysiuslai/tripadvisor-gallery-server/generatedData/CSV/photocreatorinfo.csv' DELIMITER ',' CSV HEADER;
+\copy photoCreatorInfo (username, user_contributions, date_created, review_title, review_description, review_stars, review_helpful_score) FROM '/home/ec2-user/dataFiles/photocreatorinfo.csv' DELIMITER ',' CSV HEADER;
 
-copy photos (link, alt, activity_id, photoCreatorInfo_id) FROM '/users/aloysiuslai/tripadvisor-gallery-server/generatedData/CSV/photos0.csv' DELIMITER ',' CSV HEADER;
+\copy photos (link, alt, activity_id, photoCreatorInfo_id) FROM '/home/ec2-user/dataFiles/photos0.csv' DELIMITER ',' CSV HEADER;
 
 copy photos (link, alt, activity_id, photoCreatorInfo_id) FROM '/users/aloysiuslai/tripadvisor-gallery-server/generatedData/CSV/photos1.csv' DELIMITER ',' CSV HEADER;
 

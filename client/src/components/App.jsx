@@ -50,6 +50,8 @@ class App extends React.Component {
       if (err) {
         throw new Error(err);
       } else {
+        console.log(data.photos.rows);
+        console.log(data.photos.rows[0]);
         const { activity, photos } = data;
         this.preloadImages(photos);
         this.setState({
@@ -67,6 +69,7 @@ class App extends React.Component {
       activity, photos, activePhotoIdx, showGalleryModal, showReviewModal,
     } = this.state;
     const { link, alt } = photos[activePhotoIdx];
+    console.log(activePhotoIdx);
     let imageStyle = {};
     if (link) {
       imageStyle = { backgroundImage: `url(${awsBaseUrl}/${link})` };
